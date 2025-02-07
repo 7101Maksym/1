@@ -1,4 +1,4 @@
-﻿using System.Collections.Specialized;
+using System.Collections.Specialized;
 
 namespace _1
 {
@@ -41,7 +41,7 @@ namespace _1
 
             my_number = Console.ReadLine();
 
-            if (int.TryParse(my_number, out parsed_number))
+            if (int.TryParse(Console.ReadLine(), out parsed_number))
             {
                 Console.WriteLine(parsed_number);
             }
@@ -58,7 +58,7 @@ namespace _1
 
             my_number = Console.ReadLine();
 
-            if (int.TryParse(my_number, out parsed_number))
+            if (int.TryParse(Console.ReadLine(), out parsed_number))
             {
                 if (parsed_number < 0)
                 {
@@ -86,7 +86,7 @@ namespace _1
 
             my_number = Console.ReadLine();
 
-            if (int.TryParse(my_number, out parsed_number))
+            if (int.TryParse(Console.ReadLine(), out parsed_number))
             {
                 switch (parsed_number)
                 {
@@ -139,7 +139,9 @@ namespace _1
 
         static void Task6()
         {
-            for (int i = 2; i <= 100; i += 2)
+            int max_num = 100;
+
+            for (int i = 2; i <= max_num; i += 2)
             {
                 Console.Write($"{i} ");
             }
@@ -147,9 +149,9 @@ namespace _1
 
         static void Task7()
         {
-            int sum = 0, i = 0;
+            int sum = 0, i = 0, max_num = 50;
 
-            while (i <= 50)
+            while (i <= max_num)
             {
                 sum += i;
                 i++;
@@ -157,12 +159,14 @@ namespace _1
 
             Console.WriteLine(sum);
         }
-        
+
         static void Task8()
         {
-            int[] array = new int [10];
+            int array_size = 10;
 
-            for (int i = 0; i < 10; i++)
+            int[] array = new int[array_size];
+
+            for (int i = 0; i < array_size; i++)
             {
                 array[i] = i + 1;
                 Console.Write($"{array[i]} ");
@@ -176,11 +180,13 @@ namespace _1
 
         static void Task10()
         {
-            int[,] matrix = new int[3, 3];
+            int size = 3;
 
-            for (int i = 0; i < 3; i++)
+            int[,] matrix = new int[size, size];
+
+            for (int i = 0; i < size; i++)
             {
-                for (int j = 0; j < 3; j++)
+                for (int j = 0; j < size; j++)
                 {
                     matrix[i, j] = Random.Shared.Next(0, 10);
                     Console.Write($"{matrix[i, j]} ");
@@ -194,14 +200,16 @@ namespace _1
             return a + b;
         }
 
-        
+
         static void Task12()
         {
             List<int> list = new List<int>();
 
-            for (int i = 0; i < 5; i++)
+            int rand_range = 10, rand_count = 5;
+
+            for (int i = 0; i < rand_count; i++)
             {
-                list.Add(Random.Shared.Next(0, 10));
+                list.Add(Random.Shared.Next(0, rand_range));
                 Console.Write($"{list[i]} ");
             }
 
@@ -215,18 +223,10 @@ namespace _1
         {
             Task12();
 
-            string a_s, b_s;
-
             int a, b;
 
-            a_s = Console.ReadLine();
-            b_s = Console.ReadLine();
-
-            if (int.TryParse(a_s, out a) || int.TryParse(b_s, out b))
+            if (int.TryParse(Console.ReadLine(), out a) && int.TryParse(Console.ReadLine(), out b))
             {
-                int.TryParse(a_s, out a);
-                int.TryParse(b_s, out b);
-
                 Console.WriteLine(Task11(a, b));
             }
             else
